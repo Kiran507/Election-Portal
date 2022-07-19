@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <link rel="stylesheet" href="/public/css/sidenav.css">
+    <link rel="stylesheet" href="/public/css/content.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body style="height: 100vh;">
+    <div class="wrapper">
+        <%- include('./partials/sidenav.ejs'); %>
+
+        <div class="main_content"> 
+            <div class="info">
+                <%- include('./partials/header.ejs'); %>
+                <h2>Notifications</h2>
+                <div id="contentWrapper">
+                    <div class="form-container">
+                        <div class="usersDiv">
+                            <strong>Team Invitations (<%= teams.length %>):</strong> (New Notifications comes at the top)
+                            <ul>
+                                <% for (let i=teams.length - 1; i >=0; i--) { %>
+                                    <li class="notifsCount">
+                                        <h3><%= teams[i].teamname %></h3>
+                                        Admin: <%= teams[i].admin %> <br>
+                                        Team created on: <%= teams[i].createdon %>
+                                        <div class="buttonsDiv">
+                                            <a href='/<%= currentUser._id %>/notifications/team/invite/accept/<%= teams[i]._id %>' class="buttonAnchor">Accept Invite</a>
+                                            <a href='/<%= currentUser._id %>/notifications/team/invite/reject/<%= teams[i]._id %>' class="buttonAnchor">Reject Invite</a>
+                                        </div>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <div class="usersDiv">
+                            <strong>Other Notifications (<%= currentUser.notifications.length %>): </strong> (New Notifications comes at the top)
+                            <% if (currentUser.notifications.length != 0) { %>
+                                <a href="/<%= currentUser._id %>/notifications/delete" class="buttonAnchor">Delete All Notifications</a>
+                            <% } %>
+                            <ul>
+                                <% for (let i=currentUser.notifications.length - 1; i >= 0; i--) { %>
+                                    <li class="notifsCount">
+                                        <%= currentUser.notifications[i] %>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+    </div>
+    <script src="/public/js/sidenav.js"></script>
+</body>
+</html>
