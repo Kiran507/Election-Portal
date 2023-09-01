@@ -1,5 +1,30 @@
 # Election Portal
-This web application lets you easily create teams and run elections smoothly. The user-friendly interface is built with EJS, CSS, and JavaScript on the frontend, while the backend uses Node.js, Express.js, and MongoDB.
+The Election Portal is a comprehensive web application designed for efficient team management and organized elections. The frontend is developed using EJS (Embedded JavaScript templates), CSS, and JavaScript, while the backend is powered by Node.js, Express.js, and MongoDB as the database.
+
+## Features
+
+### Team Management
+- **Create Teams:** Users can create teams for election purposes.
+- **Invite Users:** Team admins can invite users to join their teams.
+
+### Poll Creation
+- **Create Polls:** Admins can create polls with a variable number of text options.
+- **Support for Media Options:** Polls support different types of options such as images, audio, and video.
+- **Deadline for Polls:** Admins can set deadlines for automatically ending polls.
+
+### Dashboard
+- **Team Dashboard:** Each team has a dedicated dashboard displaying polls in chronological order.
+- **Poll Results:** Results are displayed after the admin ends a poll.
+
+### Notifications
+- **Admin Notifications:** Admins receive notifications when someone submits a vote or joins their team using an invite.
+
+### User Roles
+- **Multiple Admins:** Ability to have multiple admins for a team.
+- **User Roles:** Support for different user roles like teachers, class representatives (CR), students, etc.
+
+### Additional Features
+- **Visualization:** Plots and graphs are used to visualize the results of polls.
 
 ## Setup and Getting Started
 1. Download or clone this repo to your local system.
